@@ -1,0 +1,46 @@
+﻿@model Qyon.AdventureWorks.Models.HistoricoCorrida
+
+@{
+    ViewData["Title"] = "Cadastro de Histórico de Corridas";
+}
+
+<h1>Cadastro de Histórico de Corridas</h1>
+
+<h4>Histórico de Corridas</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id_Competidores" class="control-label"></label>
+                <select asp-for="Id_Competidores" class ="form-control" asp-items="ViewBag.Id_Competidores"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Id_PistaCorrida" class="control-label"></label>
+                <select asp-for="Id_PistaCorrida" class ="form-control" asp-items="ViewBag.Id_PistaCorrida"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataCorrida" class="control-label"></label>
+                <input  id="DataCorrida"  class="form-control" />
+                <span asp-validation-for="DataCorrida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TempoGasto" class="control-label"></label>
+                <input asp-for="TempoGasto" class="form-control" />
+                <span asp-validation-for="TempoGasto" class="text-danger"></span>
+            </div>
+            <div class="footer-group">
+                <input type="submit" value="Cadastrar" class="btn btn-success" />
+                 <button type="reset" class="btn btn-danger">Cancelar</button>
+                 <a class="btn btn-primary" asp-action="Index">Voltar</a>
+            </div>
+        </form>
+    </div>
+   
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

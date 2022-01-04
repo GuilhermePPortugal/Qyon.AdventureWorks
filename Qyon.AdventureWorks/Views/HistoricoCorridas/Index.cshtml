@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Qyon.AdventureWorks.Models.HistoricoCorrida>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Histórico de Corridas</h1>
+
+<p>
+      <a asp-action="Create" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Incluir Registro</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Competidores)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PistaCorrida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCorrida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TempoGasto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Competidores.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PistaCorrida.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCorrida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TempoGasto)
+            </td>
+            <td>
+                <a asp-action="Edit" class= "btn  btn-sm btn-primary" asp-route-id="@item.Id_Competidores"  >Editar</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
